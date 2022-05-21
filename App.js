@@ -3,6 +3,12 @@ import { StyleSheet, View } from "react-native";
 import { colors, fonts, spacing } from "./src/theme";
 import { useFonts } from "expo-font";
 import Text from "./src/components/common/Text";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "./src/screens/Home";
+import HomeDetails from "./src/screens/HomeDetails";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [loaded] = useFonts({
@@ -14,20 +20,21 @@ export default function App() {
     return null;
   }
   return (
-    <View style={styles.container}>
-      <Text preset="h3" style={{ color: colors.blue }}>
-        Open up App.js to start working on your app!
-      </Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="HomeDetails"
+          component={HomeDetails}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.black,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const styles = StyleSheet.create({});

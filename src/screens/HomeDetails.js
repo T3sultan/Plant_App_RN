@@ -1,14 +1,24 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
+import Header from "../components/Header";
+import { colors } from "../theme";
+import Text from "../components/common/Text";
 
-const HomeDetails = () => {
+const HomeDetails = ({ navigation, route }) => {
+  const { card } = route.params;
   return (
-    <View>
-      <Text>HomeDetails</Text>
+    <View style={styles.container}>
+      <Header backBtn={true} navigation={navigation} />
+      <Text>{card.name}</Text>
     </View>
   );
 };
 
 export default HomeDetails;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.black,
+  },
+});

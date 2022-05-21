@@ -1,4 +1,4 @@
-export const PLANET_LIST = [
+export const data = [
   {
     name: "mercury",
 

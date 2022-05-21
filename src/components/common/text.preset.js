@@ -2,13 +2,13 @@ import { colors, fonts, spacing } from "../../theme";
 
 const BASE = {
   fontFamily: fonts.primary,
-  fontSize: spacing[4],
+  fontSize: spacing[5],
   color: colors.white,
 };
 
 const BASE_BOLD = {
   fontFamily: fonts.primaryBold,
-  fontSize: spacing[4],
+  fontSize: spacing[5],
   color: colors.white,
 };
 const BOLD = {
@@ -21,26 +21,26 @@ export const presets = {
   bold: BOLD,
   h1: {
     ...BOLD,
-    fontSize: spacing[9],
+    fontSize: 32,
   },
   h2: {
-    ...BOLD,
-    fontSize: spacing[8],
+    ...BASE,
+    fontSize: 28,
   },
   h3: {
     ...BASE_BOLD,
-    fontSize: spacing[7],
+    fontSize: 24,
   },
   h4: {
     ...BASE_BOLD,
-    fontSize: spacing[6],
+    fontSize: 18,
   },
   h5: {
     ...BASE_BOLD,
-    fontSize: spacing[5],
+    fontSize: 16,
   },
   small: {
-    ...BOLD,
-    fontSize: spacing[3],
+    ...BASE,
+    fontSize: 12,
   },
 };
