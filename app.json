@@ -3,7 +3,9 @@
     "name": "plant_app03",
     "slug": "plant_app03",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
+    "privacy": "public",
+    "description": "Plants Application & item list and clicked list show the details full screen",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
@@ -14,9 +16,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
