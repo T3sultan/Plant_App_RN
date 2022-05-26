@@ -4,8 +4,9 @@ import {
   FlatList,
   TouchableOpacity,
   Pressable,
+  TextInput,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { colors, fonts, spacing } from "../theme";
 import Text from "../components/common/Text";
 import Header from "../components/Header";
@@ -13,12 +14,30 @@ import { data } from "../data/data";
 import { AntDesign } from "@expo/vector-icons";
 
 const Home = ({ navigation }) => {
+  const [list, setList] = useState(data);
+
+  const searchFilter = text => {
+    const filteredList = list.filter(item => {
+      const itemName = item.name.toLowerCase();
+      const userTypedText = text.toLowerCase();
+      return itemName.indexOf(userTypedText) > -1;
+    });
+    // console.log(filteredList);
+    setList(filteredList);
+  };
   return (
     <View style={styles.container}>
       <Header />
+      <TextInput
+        placeholder="Type any plant name"
+        placeholderTextColor={colors.white}
+        autoCorrect={false}
+        style={styles.searchInput}
+        onChangeText={text => searchFilter(text)}
+      />
       <FlatList
         contentContainerStyle={styles.list}
-        data={data}
+        data={list}
         keyExtractor={item => item.name}
         renderItem={({ item, index }) => {
           return (
@@ -73,5 +92,12 @@ const styles = StyleSheet.create({
   separator: {
     borderWidth: 1,
     backgroundColor: colors.white,
+  },
+  searchInput: {
+    padding: spacing[5],
+    color: colors.white,
+    borderBottomColor: colors.white,
+    borderBottomWidth: 0.5,
+    margin: spacing[3],
   },
 });
