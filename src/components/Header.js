@@ -13,9 +13,7 @@ const Header = ({ backBtn, navigation }) => {
         </Pressable>
       )}
 
-      <Text preset="h2" style={{ marginLeft: spacing[1] }}>
-        THE PLANTS
-      </Text>
+      <Text preset="h2">THE PLANTS</Text>
     </View>
   );
 };
@@ -24,7 +22,7 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    padding: spacing[5],
+    padding: spacing[4],
     borderBottomWidth: 0.3,
     borderBottomColor: colors.white,
     flexDirection: "row",
